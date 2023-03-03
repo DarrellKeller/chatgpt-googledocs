@@ -1,12 +1,12 @@
 // Constants
-const API_KEY = "sk-xxxx";
+const API_KEY = "sk-xxx";
 const MODEL_TYPE = "gpt-3.5-turbo"; //chatGPT model
 
 // Creates a custom menu in Google Docs
 function onOpen() {
-  DocumentApp.getUi().createMenu("ChatGPT")
-      .addItem("Generate Prompt", "generatePrompt")
-      .addItem("Generate Linkedin Post", "generateIdeas")
+  DocumentApp.getUi().createMenu("ChatGPTtools")
+      .addItem("Write an essay", "generatePrompt")
+      .addItem("Generate bullet point summary", "generateIdeas")
       .addToUi();
 }
 
@@ -16,7 +16,7 @@ function generateIdeas() {
   const doc = DocumentApp.getActiveDocument();
   const selectedText = doc.getSelection().getRangeElements()[0].getElement().asText().getText();
   const body = doc.getBody();
-  const prompt = "Help me write 5 Linkedin post on " + selectedText;
+  const prompt = "Summarize this text into 5 bullet points " + selectedText;
   const temperature = 0;
   const maxTokens = 2060;
 
